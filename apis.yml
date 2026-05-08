@@ -3,7 +3,12 @@ url: https://raw.githubusercontent.com/api-evangelist/rossum/refs/heads/main/api
 name: Rossum
 x-type: company
 description: >-
-  Rossum is an AI-powered document processing platform specialized in transactional documents (invoices, POs, contracts) with cognitive data capture and workflow.
+  Rossum is an AI-powered document processing platform specialised in
+  transactional documents — invoices, purchase orders, contracts — with
+  cognitive data capture, validation workflows and integration extensions.
+  The Rossum REST API exposes organizations, users, workspaces, queues,
+  schemas, annotations, documents and hooks/extensions across two deployment
+  domains (legacy elis.rossum.ai and the newer per-tenant rossum.app).
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -11,13 +16,63 @@ tags:
   - IDP
   - Invoices
   - OCR
+  - Workflow
+  - AP Automation
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: rossum:rest-v1
+    name: Rossum REST API v1
+    description: >-
+      REST API for managing organizations, users, workspaces, queues, schemas,
+      documents, annotations and webhook/serverless extensions (hooks). Token
+      authentication; access tokens valid ~162 hours by default. Supports
+      PDF/PNG/JPEG/TIFF/XLSX/DOCX/HTML uploads up to 40 MB.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://elis.rossum.ai/api/docs/
+    baseURL: https://api.elis.rossum.ai/v1
+    tags:
+      - REST
+      - Annotations
+      - Queues
+      - Schemas
+      - Hooks
+    properties:
+      - type: Documentation
+        url: https://elis.rossum.ai/api/docs/
+      - type: APIReference
+        url: https://api.elis.rossum.ai/docs/
+      - type: DeveloperHub
+        url: https://developers.rossum.ai/
+      - type: SDKPython
+        url: https://github.com/rossumai/rossum-api
+      - type: SDKCLI
+        url: https://github.com/rossumai/rossum
+  - aid: rossum:tenant-app
+    name: Rossum Tenant API (rossum.app)
+    description: >-
+      Same REST surface served from each customer's tenant subdomain
+      (https://<tenant>.rossum.app/api/v1/) for organisations created after
+      November 2022 or migrated to the new platform.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://rossum.app/api/docs/openapi/guides/getting-started/
+    baseURL: https://<tenant>.rossum.app/api/v1
+    tags:
+      - REST
+      - Tenant
+      - Multi-region
 common:
   - type: Website
     url: https://rossum.ai/
+  - type: Documentation
+    url: https://elis.rossum.ai/api/docs/
+  - type: DeveloperHub
+    url: https://developers.rossum.ai/
+  - type: Pricing
+    url: https://rossum.ai/pricing/
+  - type: GitHub
+    url: https://github.com/rossumai
   - type: Plans
     url: plans/rossum-plans-pricing.yml
   - type: RateLimits

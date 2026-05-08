@@ -5,7 +5,7 @@ provider: Rossum
 providerId: rossum
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Document AI
@@ -13,29 +13,98 @@ tags:
 - Invoices
 - OCR
 - Plans
-description: Placeholder plans/pricing artifact for Rossum. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+- Pricing
+description: >-
+  Rossum sells four published tiers — Starter, Business, Enterprise and
+  Ultimate — with pricing scaling by document volume and workflow complexity.
+  Annual contracts; one-year minimum. Per-page overage pricing applies above
+  the negotiated bundle.
+notes: >-
+  Starter starts from $18,000/year and includes unlimited seats, ingestion,
+  AI extraction, validation screen and API access. Higher tiers add SAP/Coupa
+  integrations, SSO, sandbox, custom branding and document translation.
 sources:
-- https://rossum.ai/
+- https://rossum.ai/pricing/
 plans:
-- id: rossum-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: rossum-starter
+  name: Starter
+  type: subscription
+  description: Starting at $18,000/year. Unlimited seats; document ingestion, AI extraction, validation screen, API access.
   entries:
-  - label: API Access
-    name: api_access
+  - label: Annual price (starting)
+    name: annual_price
     type: flat
-    metric: varies
+    metric: year
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: 18000
+    currency: USD
+    userMultiplied: false
+- id: rossum-business
+  name: Business
+  type: subscription
+  description: Adds custom business logic, master data matching, duplicate detection, intelligent mailbox, ERP integrations (SAP, Coupa).
+  entries:
+  - label: Annual price
+    name: annual_price
+    type: flat
+    metric: year
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    currency: USD
+    userMultiplied: false
+- id: rossum-enterprise
+  name: Enterprise (Recommended)
+  type: enterprise
+  description: Adds SSO, sandbox, document translation, extended master data matching, custom branding.
+  entries:
+  - label: Annual price
+    name: annual_price
+    type: flat
+    metric: year
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    currency: USD
+    userMultiplied: false
+- id: rossum-ultimate
+  name: Ultimate
+  type: enterprise
+  description: For large organisations with millions of transactions; multi-document support, custom email domains, embeddable interfaces, 3-year archive.
+  entries:
+  - label: Annual price
+    name: annual_price
+    type: flat
+    metric: year
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    currency: USD
+    userMultiplied: false
+- id: rossum-page-overage
+  name: Per-page overage
+  type: addOn
+  description: Per-page billing applies if the negotiated document/page bundle is exceeded.
+  entries:
+  - label: Per-page overage
+    name: page_overage
+    type: usage
+    metric: page
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://rossum.ai/
+    price: contact sales
     userMultiplied: false
-  elements:
-  - name: Pending Reconciliation
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

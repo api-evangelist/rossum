@@ -5,7 +5,7 @@ provider: Rossum
 providerId: rossum
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Document AI
@@ -15,21 +15,44 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Rossum. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Rossum publishes a global REST API throttle of 10 requests per second on
+  general endpoints, with 10 requests per minute specifically on the
+  page-spatial-data translation endpoint. 429 with Retry-After is returned on
+  excess. Documents up to 40 MB are accepted.
+notes: >-
+  Access tokens default to ~162 hours; long-lived tokens can be obtained via
+  one-time-token exchange. Annotation processing is asynchronous (importing →
+  to_review → exported) so polling cadence rarely needs to approach the per-
+  second limit.
 sources:
-- https://rossum.ai/
+- https://elis.rossum.ai/api/docs/
 responseCodes:
   throttled: 429
+headers:
+- name: Retry-After
+  description: Seconds to wait before retrying after a 429.
 limits:
-- name: Default
+- name: General REST endpoints
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: requests
+  limit: 10
+  timeFrame: 1s
+- name: Page spatial data translation
+  scope: account
+  metric: requests
+  limit: 10
+  timeFrame: 1m
+- name: Maximum upload size
+  scope: request
+  metric: MB
+  limit: 40
+  notes: Per-document upload size limit.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Honor Retry-After on 429; use exponential backoff with jitter.
+- name: Polling vs Hooks
+  description: Prefer webhook (hook) extensions over polling annotations endpoints to stay below limits.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
