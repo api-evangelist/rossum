@@ -1,0 +1,29 @@
+aid: rossum
+url: https://raw.githubusercontent.com/api-evangelist/rossum/refs/heads/main/apis.yml
+name: Rossum
+x-type: company
+description: >-
+  Rossum is an AI-powered document processing platform specialized in transactional documents (invoices, POs, contracts) with cognitive data capture and workflow.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - AI
+  - Document AI
+  - IDP
+  - Invoices
+  - OCR
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://rossum.ai/
+  - type: Plans
+    url: plans/rossum-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/rossum-rate-limits.yml
+  - type: FinOps
+    url: finops/rossum-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
