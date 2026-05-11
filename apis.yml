@@ -79,6 +79,17 @@ common:
     url: rate-limits/rossum-rate-limits.yml
   - type: FinOps
     url: finops/rossum-finops.yml
+  - type: Integrations
+    url: https://rossum.ai/integrations/
+integrations:
+  - name: SAP
+  - name: Coupa
+  - name: NetSuite
+  - name: Workday
+  - name: Microsoft Dynamics
+  - name: UiPath logo and Rossum integrations
+  - name: Blueprism and Rossum integrations
+  - name: Automation Anywhere and Rossum integrations
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
