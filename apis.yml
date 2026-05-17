@@ -1,7 +1,7 @@
 aid: rossum
 url: https://raw.githubusercontent.com/api-evangelist/rossum/refs/heads/main/apis.yml
 name: Rossum
-x-type: company
+kind: company
 description: >-
   Rossum is an AI-powered document processing platform specialised in
   transactional documents — invoices, purchase orders, contracts — with
