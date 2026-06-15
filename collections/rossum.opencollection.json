@@ -1,0 +1,228 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rossum REST API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Log in and obtain an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elis.rossum.ai/v1/auth/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exchange username and password for an access token. Tokens are valid\nfor up to 162 hours by default.\n"
+        },
+        {
+          "info": {
+            "name": "Log out and invalidate the current token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elis.rossum.ai/v1/auth/logout"
+          },
+          "docs": "Log out and invalidate the current token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Queues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List queues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.elis.rossum.ai/v1/queues",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List queues"
+        },
+        {
+          "info": {
+            "name": "Export extracted data from a queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.elis.rossum.ai/v1/queues/:id/export",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Export extracted data from a queue"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Uploads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload a document to a queue for extraction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elis.rossum.ai/v1/uploads",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "content",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "queue",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload PDF, PNG, JPEG, TIFF, XLSX, DOCX, or HTML files (up to 40 MB)\nto a queue. The upload is asynchronously processed into an annotation.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Annotations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve an annotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.elis.rossum.ai/v1/annotations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an annotation"
+        },
+        {
+          "info": {
+            "name": "Update an annotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.elis.rossum.ai/v1/annotations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an annotation"
+        },
+        {
+          "info": {
+            "name": "Confirm a validated annotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elis.rossum.ai/v1/annotations/:id/confirm",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Confirm a validated annotation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Schemas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List extraction schemas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.elis.rossum.ai/v1/schemas"
+          },
+          "docs": "List extraction schemas"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
