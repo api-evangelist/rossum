@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/rossum-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: |-
+    Token obtained from POST /auth/login. Pass as
+    `Authorization: Bearer <token>`. The legacy `Token <token>` scheme is
+    also accepted.
+  sources:
+  - openapi/rossum-openapi.yml

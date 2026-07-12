@@ -63,6 +63,14 @@ apis:
       - Tenant
       - Multi-region
 common:
+  - type: VulnerabilityDisclosure
+    url: security/rossum-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/rossum-domain-security.yml
+  - type: Authentication
+    url: authentication/rossum-authentication.yml
+  - url: https://rossum.ai/blog/feed/
+    type: Blog
   - type: LinkedIn
     url: https://www.linkedin.com/company/rossum
   - type: Website
