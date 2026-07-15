@@ -63,6 +63,8 @@ apis:
       - Tenant
       - Multi-region
 common:
+  - type: AgenticAccess
+    url: agentic-access/rossum-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/rossum-vulnerability-disclosure.yml
   - type: DomainSecurity
