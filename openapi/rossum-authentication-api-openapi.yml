@@ -1,0 +1,103 @@
+openapi: 3.1.0
+info:
+  title: Rossum REST Annotations Authentication API
+  description: 'Rossum is an AI-powered document processing platform for transactional
+
+    documents (invoices, purchase orders, contracts). The REST API exposes
+
+    organizations, users, workspaces, queues, schemas, annotations, documents,
+
+    uploads, and webhook/serverless extensions (hooks).
+
+
+    Two deployment domains exist:
+
+    - Legacy single-tenant: https://api.elis.rossum.ai/v1
+
+    - Per-tenant (new): https://<tenant>.rossum.app/api/v1
+
+
+    Documentation: https://elis.rossum.ai/api/docs/
+
+    '
+  version: 1.0.0
+  contact:
+    name: Rossum
+    url: https://rossum.ai/
+servers:
+- url: https://api.elis.rossum.ai/v1
+  description: Legacy single-tenant base URL
+- url: https://{tenant}.rossum.app/api/v1
+  description: Per-tenant base URL (organisations created after Nov 2022)
+  variables:
+    tenant:
+      default: example
+      description: Customer tenant subdomain
+security:
+- bearerAuth: []
+tags:
+- name: Authentication
+paths:
+  /auth/login:
+    post:
+      tags:
+      - Authentication
+      summary: Log in and obtain an access token
+      description: 'Exchange username and password for an access token. Tokens are valid
+
+        for up to 162 hours by default.
+
+        '
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                  description: User email address.
+                password:
+                  type: string
+                  format: password
+                max_token_lifetime_s:
+                  type: integer
+                  description: Token lifetime in seconds (max 583200).
+      responses:
+        '200':
+          description: Login successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  key:
+                    type: string
+                    description: Access token to be used as Bearer token.
+                  domain:
+                    type: string
+  /auth/logout:
+    post:
+      tags:
+      - Authentication
+      summary: Log out and invalidate the current token
+      responses:
+        '200':
+          description: Logout successful.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Token obtained from POST /auth/login. Pass as
+
+        `Authorization: Bearer <token>`. The legacy `Token <token>` scheme is
+
+        also accepted.
+
+        '

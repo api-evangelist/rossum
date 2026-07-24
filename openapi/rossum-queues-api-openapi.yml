@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: Rossum REST Annotations Queues API
+  description: 'Rossum is an AI-powered document processing platform for transactional
+
+    documents (invoices, purchase orders, contracts). The REST API exposes
+
+    organizations, users, workspaces, queues, schemas, annotations, documents,
+
+    uploads, and webhook/serverless extensions (hooks).
+
+
+    Two deployment domains exist:
+
+    - Legacy single-tenant: https://api.elis.rossum.ai/v1
+
+    - Per-tenant (new): https://<tenant>.rossum.app/api/v1
+
+
+    Documentation: https://elis.rossum.ai/api/docs/
+
+    '
+  version: 1.0.0
+  contact:
+    name: Rossum
+    url: https://rossum.ai/
+servers:
+- url: https://api.elis.rossum.ai/v1
+  description: Legacy single-tenant base URL
+- url: https://{tenant}.rossum.app/api/v1
+  description: Per-tenant base URL (organisations created after Nov 2022)
+  variables:
+    tenant:
+      default: example
+      description: Customer tenant subdomain
+security:
+- bearerAuth: []
+tags:
+- name: Queues
+paths:
+  /queues:
+    get:
+      tags:
+      - Queues
+      summary: List queues
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A paginated list of queues.
+  /queues/{id}/export:
+    get:
+      tags:
+      - Queues
+      summary: Export extracted data from a queue
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: format
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - csv
+          - json
+          - xml
+          - xlsx
+      - name: status
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Exported data in the requested format.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Token obtained from POST /auth/login. Pass as
+
+        `Authorization: Bearer <token>`. The legacy `Token <token>` scheme is
+
+        also accepted.
+
+        '

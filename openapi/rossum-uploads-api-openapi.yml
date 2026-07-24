@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: Rossum REST Annotations Uploads API
+  description: 'Rossum is an AI-powered document processing platform for transactional
+
+    documents (invoices, purchase orders, contracts). The REST API exposes
+
+    organizations, users, workspaces, queues, schemas, annotations, documents,
+
+    uploads, and webhook/serverless extensions (hooks).
+
+
+    Two deployment domains exist:
+
+    - Legacy single-tenant: https://api.elis.rossum.ai/v1
+
+    - Per-tenant (new): https://<tenant>.rossum.app/api/v1
+
+
+    Documentation: https://elis.rossum.ai/api/docs/
+
+    '
+  version: 1.0.0
+  contact:
+    name: Rossum
+    url: https://rossum.ai/
+servers:
+- url: https://api.elis.rossum.ai/v1
+  description: Legacy single-tenant base URL
+- url: https://{tenant}.rossum.app/api/v1
+  description: Per-tenant base URL (organisations created after Nov 2022)
+  variables:
+    tenant:
+      default: example
+      description: Customer tenant subdomain
+security:
+- bearerAuth: []
+tags:
+- name: Uploads
+paths:
+  /uploads:
+    post:
+      tags:
+      - Uploads
+      summary: Upload a document to a queue for extraction
+      description: 'Upload PDF, PNG, JPEG, TIFF, XLSX, DOCX, or HTML files (up to 40 MB)
+
+        to a queue. The upload is asynchronously processed into an annotation.
+
+        '
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  format: binary
+                queue:
+                  type: string
+                  description: URL of the destination queue.
+      responses:
+        '201':
+          description: Upload accepted.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Token obtained from POST /auth/login. Pass as
+
+        `Authorization: Bearer <token>`. The legacy `Token <token>` scheme is
+
+        also accepted.
+
+        '

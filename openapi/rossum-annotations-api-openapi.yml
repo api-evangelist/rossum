@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Rossum REST Annotations API
+  description: 'Rossum is an AI-powered document processing platform for transactional
+
+    documents (invoices, purchase orders, contracts). The REST API exposes
+
+    organizations, users, workspaces, queues, schemas, annotations, documents,
+
+    uploads, and webhook/serverless extensions (hooks).
+
+
+    Two deployment domains exist:
+
+    - Legacy single-tenant: https://api.elis.rossum.ai/v1
+
+    - Per-tenant (new): https://<tenant>.rossum.app/api/v1
+
+
+    Documentation: https://elis.rossum.ai/api/docs/
+
+    '
+  version: 1.0.0
+  contact:
+    name: Rossum
+    url: https://rossum.ai/
+servers:
+- url: https://api.elis.rossum.ai/v1
+  description: Legacy single-tenant base URL
+- url: https://{tenant}.rossum.app/api/v1
+  description: Per-tenant base URL (organisations created after Nov 2022)
+  variables:
+    tenant:
+      default: example
+      description: Customer tenant subdomain
+security:
+- bearerAuth: []
+tags:
+- name: Annotations
+paths:
+  /annotations/{id}:
+    get:
+      tags:
+      - Annotations
+      summary: Retrieve an annotation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Annotation object including extracted content.
+    patch:
+      tags:
+      - Annotations
+      summary: Update an annotation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Annotation updated.
+  /annotations/{id}/confirm:
+    post:
+      tags:
+      - Annotations
+      summary: Confirm a validated annotation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Annotation confirmed.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Token obtained from POST /auth/login. Pass as
+
+        `Authorization: Bearer <token>`. The legacy `Token <token>` scheme is
+
+        also accepted.
+
+        '
