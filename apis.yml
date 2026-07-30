@@ -9,7 +9,20 @@ description: >-
   The Rossum REST API exposes organizations, users, workspaces, queues,
   schemas, annotations, documents and hooks/extensions across two deployment
   domains (legacy elis.rossum.ai and the newer per-tenant rossum.app).
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/rossum.png
 tags:
   - AI
   - Document AI
@@ -22,46 +35,94 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: rossum:rest-v1
-    name: Rossum REST API v1
-    description: >-
-      REST API for managing organizations, users, workspaces, queues, schemas,
-      documents, annotations and webhook/serverless extensions (hooks). Token
-      authentication; access tokens valid ~162 hours by default. Supports
-      PDF/PNG/JPEG/TIFF/XLSX/DOCX/HTML uploads up to 40 MB.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://elis.rossum.ai/api/docs/
-    baseURL: https://api.elis.rossum.ai/v1
-    tags:
-      - REST
-      - Annotations
-      - Queues
-      - Schemas
-      - Hooks
-    properties:
-      - type: Documentation
-        url: https://elis.rossum.ai/api/docs/
-      - type: APIReference
-        url: https://api.elis.rossum.ai/docs/
-      - type: DeveloperHub
-        url: https://developers.rossum.ai/
-      - type: SDKPython
-        url: https://github.com/rossumai/rossum-api
-      - type: SDKCLI
-        url: https://github.com/rossumai/rossum
-  - aid: rossum:tenant-app
-    name: Rossum Tenant API (rossum.app)
-    description: >-
-      Same REST surface served from each customer's tenant subdomain
-      (https://<tenant>.rossum.app/api/v1/) for organisations created after
-      November 2022 or migrated to the new platform.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://rossum.app/api/docs/openapi/guides/getting-started/
-    baseURL: https://<tenant>.rossum.app/api/v1
-    tags:
-      - REST
-      - Tenant
-      - Multi-region
+- aid: rossum:rest-v1
+  name: Rossum REST API v1
+  description: >-
+    REST API for managing organizations, users, workspaces, queues, schemas, documents, annotations and
+    webhook/serverless extensions (hooks). Token authentication; access tokens valid ~162 hours by default.
+    Supports PDF/PNG/JPEG/TIFF/XLSX/DOCX/HTML uploads up to 40 MB.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://elis.rossum.ai/api/docs/
+  baseURL: https://api.elis.rossum.ai/v1
+  tags:
+  - REST
+  - Annotations
+  - Queues
+  - Schemas
+  - Hooks
+  properties:
+  - type: Documentation
+    url: https://elis.rossum.ai/api/docs/
+  - type: APIReference
+    url: https://api.elis.rossum.ai/docs/
+  - type: DeveloperHub
+    url: https://developers.rossum.ai/
+  - type: SDKPython
+    url: https://github.com/rossumai/rossum-api
+  - type: SDKCLI
+    url: https://github.com/rossumai/rossum
+- aid: rossum:tenant-app
+  name: Rossum Tenant API (rossum.app)
+  description: >-
+    Same REST surface served from each customer's tenant subdomain (https://<tenant>.rossum.app/api/v1/)
+    for organisations created after November 2022 or migrated to the new platform.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://rossum.app/api/docs/openapi/guides/getting-started/
+  baseURL: https://<tenant>.rossum.app/api/v1
+  tags:
+  - REST
+  - Tenant
+  - Multi-region
+- aid: rossum:rossum-annotations-api
+  name: Rossum Annotations API
+  description: The Annotations API from Rossum — 2 operation(s) for annotations.
+  humanURL: https://elis.rossum.ai/api/docs/
+  baseURL: https://api.elis.rossum.ai/v1
+  tags:
+  - Annotations
+  properties:
+  - type: OpenAPI
+    url: openapi/rossum-annotations-api-openapi.yml
+- aid: rossum:rossum-authentication-api
+  name: Rossum Authentication API
+  description: The Authentication API from Rossum — 2 operation(s) for authentication.
+  humanURL: https://elis.rossum.ai/api/docs/
+  baseURL: https://api.elis.rossum.ai/v1
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/rossum-authentication-api-openapi.yml
+- aid: rossum:rossum-queues-api
+  name: Rossum Queues API
+  description: The Queues API from Rossum — 2 operation(s) for queues.
+  humanURL: https://elis.rossum.ai/api/docs/
+  baseURL: https://api.elis.rossum.ai/v1
+  tags:
+  - Queues
+  properties:
+  - type: OpenAPI
+    url: openapi/rossum-queues-api-openapi.yml
+- aid: rossum:rossum-schemas-api
+  name: Rossum Schemas API
+  description: The Schemas API from Rossum — 1 operation(s) for schemas.
+  humanURL: https://elis.rossum.ai/api/docs/
+  baseURL: https://api.elis.rossum.ai/v1
+  tags:
+  - Schemas
+  properties:
+  - type: OpenAPI
+    url: openapi/rossum-schemas-api-openapi.yml
+- aid: rossum:rossum-uploads-api
+  name: Rossum Uploads API
+  description: The Uploads API from Rossum — 1 operation(s) for uploads.
+  humanURL: https://elis.rossum.ai/api/docs/
+  baseURL: https://api.elis.rossum.ai/v1
+  tags:
+  - Uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/rossum-uploads-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/rossum-agentic-access.yml
