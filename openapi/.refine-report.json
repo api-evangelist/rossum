@@ -1,0 +1,22 @@
+{
+  "provider": "rossum",
+  "sources": [
+    "rossum-annotations-api-openapi.yml",
+    "rossum-authentication-api-openapi.yml",
+    "rossum-queues-api-openapi.yml",
+    "rossum-schemas-api-openapi.yml",
+    "rossum-uploads-api-openapi.yml"
+  ],
+  "outputs": [
+    "rossum-annotations-api-openapi.yml",
+    "rossum-authentication-api-openapi.yml",
+    "rossum-queues-api-openapi.yml",
+    "rossum-schemas-api-openapi.yml",
+    "rossum-uploads-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
