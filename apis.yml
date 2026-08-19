@@ -33,7 +33,7 @@ tags:
   - AP Automation
 created: '2026-05-08'
 modified: '2026-05-08'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: rossum:rest-v1
   name: Rossum REST API v1
