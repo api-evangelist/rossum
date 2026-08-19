@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rossum REST Annotations Authentication API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Log in and obtain an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elis.rossum.ai/v1/auth/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exchange username and password for an access token. Tokens are valid\nfor up to 162 hours by default.\n"
+        },
+        {
+          "info": {
+            "name": "Log out and invalidate the current token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elis.rossum.ai/v1/auth/logout"
+          },
+          "docs": "Log out and invalidate the current token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,106 @@
+{
+  "item": [
+    {
+      "id": "52657cfa-8e23-43e2-b80a-5639ae35b2e3",
+      "name": "Schemas",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26d31384-f93a-4224-b32f-4766c305cc5a",
+          "name": "List extraction schemas",
+          "request": {
+            "name": "List extraction schemas",
+            "description": {},
+            "url": {
+              "path": [
+                "schemas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1c90913-ac70-4cbc-86ff-1595032f7e76",
+              "name": "A list of schemas.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schemas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.elis.rossum.ai/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "49f4c9d3-67e5-4fb4-826f-0e6752cb6252",
+    "name": "Rossum REST Annotations Schemas API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rossum is an AI-powered document processing platform for transactional\ndocuments (invoices, purchase orders, contracts). The REST API exposes\norganizations, users, workspaces, queues, schemas, annotations, documents,\nuploads, and webhook/serverless extensions (hooks).\n\nTwo deployment domains exist:\n- Legacy single-tenant: https://api.elis.rossum.ai/v1\n- Per-tenant (new): https://<tenant>.rossum.app/api/v1\n\nDocumentation: https://elis.rossum.ai/api/docs/\n\n\nContact Support:\n Name: Rossum",
+      "type": "text/plain"
+    }
+  }
+}

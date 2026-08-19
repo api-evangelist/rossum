@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rossum REST Annotations Uploads API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Uploads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload a document to a queue for extraction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.elis.rossum.ai/v1/uploads",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "content",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "queue",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload PDF, PNG, JPEG, TIFF, XLSX, DOCX, or HTML files (up to 40 MB)\nto a queue. The upload is asynchronously processed into an annotation.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
