@@ -9,6 +9,18 @@ description: >-
   The Rossum REST API exposes organizations, users, workspaces, queues,
   schemas, annotations, documents and hooks/extensions across two deployment
   domains (legacy elis.rossum.ai and the newer per-tenant rossum.app).
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
