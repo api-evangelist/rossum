@@ -92,7 +92,7 @@ apis:
   tags:
   - REST
   - Tenant
-  - Multi-Region
+  - Multi-region
   tags_raw:
   - REST
   - Tenant
