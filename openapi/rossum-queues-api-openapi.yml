@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Rossum REST Annotations Queues API
+  title: Rossum REST Queues API
   description: 'Rossum is an AI-powered document processing platform for transactional
 
     documents (invoices, purchase orders, contracts). The REST API exposes
@@ -14,12 +14,10 @@ info:
 
     - Legacy single-tenant: https://api.elis.rossum.ai/v1
 
-    - Per-tenant (new): https://<tenant>.rossum.app/api/v1
+    - Per-tenant (new): https://.rossum.app/api/v1
 
 
-    Documentation: https://elis.rossum.ai/api/docs/
-
-    '
+    Documentation: https://elis.rossum.ai/api/docs/'
   version: 1.0.0
   contact:
     name: Rossum
@@ -55,6 +53,8 @@ paths:
       responses:
         '200':
           description: A paginated list of queues.
+      operationId: getQueues
+      x-operation-id-source: derived
   /queues/{id}/export:
     get:
       tags:
@@ -83,6 +83,8 @@ paths:
       responses:
         '200':
           description: Exported data in the requested format.
+      operationId: getQueuesByIdExport
+      x-operation-id-source: derived
 components:
   securitySchemes:
     bearerAuth:

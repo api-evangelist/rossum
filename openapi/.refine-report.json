@@ -1,11 +1,7 @@
 {
   "provider": "rossum",
   "sources": [
-    "rossum-annotations-api-openapi.yml",
-    "rossum-authentication-api-openapi.yml",
-    "rossum-queues-api-openapi.yml",
-    "rossum-schemas-api-openapi.yml",
-    "rossum-uploads-api-openapi.yml"
+    "_original/rossum-openapi.yml"
   ],
   "outputs": [
     "rossum-annotations-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "rossum-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "rossum-annotations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rossum-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rossum-queues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rossum-schemas-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rossum-uploads-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

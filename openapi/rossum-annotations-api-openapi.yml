@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Rossum REST Annotations API
   description: 'Rossum is an AI-powered document processing platform for transactional
@@ -14,12 +14,10 @@ info:
 
     - Legacy single-tenant: https://api.elis.rossum.ai/v1
 
-    - Per-tenant (new): https://<tenant>.rossum.app/api/v1
+    - Per-tenant (new): https://.rossum.app/api/v1
 
 
-    Documentation: https://elis.rossum.ai/api/docs/
-
-    '
+    Documentation: https://elis.rossum.ai/api/docs/'
   version: 1.0.0
   contact:
     name: Rossum
@@ -52,6 +50,8 @@ paths:
       responses:
         '200':
           description: Annotation object including extracted content.
+      operationId: getAnnotationsById
+      x-operation-id-source: derived
     patch:
       tags:
       - Annotations
@@ -71,6 +71,8 @@ paths:
       responses:
         '200':
           description: Annotation updated.
+      operationId: patchAnnotationsById
+      x-operation-id-source: derived
   /annotations/{id}/confirm:
     post:
       tags:
@@ -85,6 +87,8 @@ paths:
       responses:
         '200':
           description: Annotation confirmed.
+      operationId: postAnnotationsByIdConfirm
+      x-operation-id-source: derived
 components:
   securitySchemes:
     bearerAuth:
