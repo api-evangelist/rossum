@@ -1,4 +1,4 @@
-# Rossum (rossum)
+# Rossum
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,82 +66,127 @@
 
 Rossum is an AI-powered document processing platform specialised in transactional documents — invoices, purchase orders, contracts — with cognitive data capture, validation workflows and integration extensions. The Rossum REST API exposes organizations, users, workspaces, queues, schemas, annotations, documents and hooks/extensions across two deployment domains (legacy elis.rossum.ai and the newer per-tenant rossum.app).
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/rossum/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/rossum/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Document AI · Intelligent Document Processing · Invoices · OCR · Workflows · AP Automation
 
-## Tags
+## Rossum on APIs.io
 
-- AI
-- Document AI
-- IDP
-- Invoices
-- OCR
-- Workflow
-- AP Automation
+Everything profiled for Rossum is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/rossum/](https://apis.io/providers/rossum/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Rossum REST API v1](https://apis.io/apis/rossum/rest-v1/) — REST API for managing organizations, users, workspaces, queues, schemas, documents, annotations and webhook/serverless extensions (hooks). Token…
+- [Rossum Tenant API (rossum.app)](https://apis.io/apis/rossum/tenant-app/) — Same REST surface served from each customer's tenant subdomain (https://<tenant>.rossum.app/api/v1/) for organisations created after November 2022 or…
+- [Rossum Annotations API](https://apis.io/apis/rossum/rossum-annotations-api/) — The Annotations API from Rossum — 2 operation(s) for annotations.
+- [Rossum Authentication API](https://apis.io/apis/rossum/rossum-authentication-api/) — The Authentication API from Rossum — 2 operation(s) for authentication.
+- [Rossum Queues API](https://apis.io/apis/rossum/rossum-queues-api/) — The Queues API from Rossum — 2 operation(s) for queues.
+- [Rossum Schemas API](https://apis.io/apis/rossum/rossum-schemas-api/) — The Schemas API from Rossum — 1 operation(s) for schemas.
+- [Rossum Uploads API](https://apis.io/apis/rossum/rossum-uploads-api/) — The Uploads API from Rossum — 1 operation(s) for uploads.
 
-## APIs
+### Published properties
 
-### Rossum REST API v1
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for managing organizations, users, workspaces, queues, schemas, documents, annotations and webhook/serverless extensions (hooks). Token authentication; access tokens valid ~162 hours by default. Supports PDF/PNG/JPEG/TIFF/XLSX/DOCX/HTML uploads up to 40 MB.
+#### Agentic access (1)
 
-- **Human URL:** [https://elis.rossum.ai/api/docs/](https://elis.rossum.ai/api/docs/)
-- **Base URL:** `https://api.elis.rossum.ai/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Rossum Agentic Access](https://apis.io/agentic-access/rossum/rossum-agentic-access/)
 
-- REST
-- Annotations
-- Queues
-- Schemas
-- Hooks
+#### Collections (6)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://elis.rossum.ai/api/docs/)
-- [API Reference](https://api.elis.rossum.ai/docs/)
-- [Developer Hub](https://developers.rossum.ai/)
-- [S D K Python](https://github.com/rossumai/rossum-api)
-- [S D K C L I](https://github.com/rossumai/rossum)
-- [Postman Collection](collections/rossum.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/rossum.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Rossum REST API](https://apis.io/collections/rossum/open-rossum/)
+- [Rossum REST Annotations API](https://apis.io/collections/rossum/open-rossum-annotations-api/)
+- [Rossum REST Annotations Authentication API](https://apis.io/collections/rossum/open-rossum-authentication-api/)
+- [Rossum REST Annotations Queues API](https://apis.io/collections/rossum/open-rossum-queues-api/)
+- [Rossum REST Annotations Schemas API](https://apis.io/collections/rossum/open-rossum-schemas-api/)
+- [Rossum REST Annotations Uploads API](https://apis.io/collections/rossum/open-rossum-uploads-api/)
 
-### Rossum Tenant API (rossum.app)
+#### Security (3)
 
-Same REST surface served from each customer's tenant subdomain (https://<tenant>.rossum.app/api/v1/) for organisations created after November 2022 or migrated to the new platform.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://rossum.app/api/docs/openapi/guides/getting-started/](https://rossum.app/api/docs/openapi/guides/getting-started/)
-- **Base URL:** `https://<tenant>.rossum.app/api/v1`
+- [Rossum Authentication](https://apis.io/security/rossum/rossum-authentication/)
+- [Rossum Domain Security](https://apis.io/security/rossum/rossum-domain-security/)
+- [Rossum Vulnerability Disclosure](https://apis.io/security/rossum/rossum-vulnerability-disclosure/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- REST
-- Tenant
-- Multi-region
+Published plans, tiers and prices.
 
-#### Properties
+- [Rossum Plans Pricing](https://apis.io/plans/rossum/rossum-plans-pricing/)
 
-- [Postman Collection](collections/rossum.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/rossum.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-## Common Properties
+Published request limits.
 
-- [LinkedIn](https://www.linkedin.com/company/rossum)
+- [Rossum Rate Limits](https://apis.io/rate-limits/rossum/rossum-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Rossum Finops](https://apis.io/finops/rossum/rossum-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://rossum.ai/)
 - [Documentation](https://elis.rossum.ai/api/docs/)
-- [Developer Hub](https://developers.rossum.ai/)
 - [Pricing](https://rossum.ai/pricing/)
-- [Git Hub](https://github.com/rossumai)
-- [Plans](plans/rossum-plans-pricing.yml)
-- [Rate Limits](rate-limits/rossum-rate-limits.yml)
-- [Fin Ops](finops/rossum-finops.yml)
-- [Integrations](https://rossum.ai/integrations/)
+- [Blog](https://rossum.ai/blog/feed/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 46.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 18.4 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/rossum/](https://apis.io/providers/rossum/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Rossum: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/rossum/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
